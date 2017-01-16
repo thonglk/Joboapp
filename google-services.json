@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "748631498782",
+    "firebase_url": "https://jobo-b8204.firebaseio.com",
+    "project_id": "jobo-b8204",
+    "storage_bucket": "jobo-b8204.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748631498782:android:de221c56c050fb8d",
+        "android_client_info": {
+          "package_name": "com.ambius.jobo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748631498782-qt0hmdnb267fh9ltn0aktb7re2fjq944.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALeQbqLBiWC1EfgyNnwaZsZ63nLgjGRjg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748631498782-qt0hmdnb267fh9ltn0aktb7re2fjq944.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

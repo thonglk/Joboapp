@@ -1,0 +1,4 @@
+<ion-list class="list-borderless"
+          ng-repeat="(key, value) in time">
+  <ion-radio ng-value="{{ key }}" ng-model="newHospital.time[key]" ng-click="selecttime(key)">{{ value }}</ion-radio>
+</ion-list>

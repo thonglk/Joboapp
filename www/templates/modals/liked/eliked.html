@@ -1,0 +1,20 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Những ứng viên thích bạn</h1>
+    <div class="buttons">
+      <button class="button button-clear button-assertive" ng-click="hideliked()">Hủy</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-light item-text-wrap item-avatar item-borderless item-icon-right"
+                data-ng-repeat="card in Objcards" ng-click="hideliked()" ng-href="#/sviewprofile/{{card.userid}}"
+                ng-if="usercurent.stars[card.userid] && !usercurent.match[card.userid] && !card.disstars[userid]">
+        <img ng-src="{{card.photourl}}">
+        <h2 class="capitalize font-120">{{card.name}}</h2>
+        <i class="ion-android-arrow-dropright icon-right"></i>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

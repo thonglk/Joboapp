@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/framework7/css/framework7.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.0.2/css/hover-min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic 1.3/angularjs 1.5.3 js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic.cloud.min.js"></script>
+
+
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAjXzJb9LI2_4hpp9NMwuqFr1CWLavwDPA",
+        authDomain: "jobo-b8204.firebaseapp.com",
+        databaseURL: "https://jobo-b8204.firebaseio.com",
+        storageBucket: "jobo-b8204.appspot.com",
+        messagingSenderId: "748631498782"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!--AngularFire-->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="lib/ng-cordova-oauth/dist/ng-cordova-oauth.min.js"></script>
+    <script src="cordova.js"></script>
+
+
+
+    <script src="lib/framework7/js/framework7.js"></script>
+    <script src="lib/angular-swiper.js"></script>
+    <script src="lib/underscore.min.js"></script>
+    <script src="lib/angular-filter.min.js"></script>
+
+
+
+    <!-- your app's js -->
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    <script src="lib/angular-ui-mask/dist/mask.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/controllers/factory.js"></script>
+
+    <script src="templates/chat/chat.js"></script>
+    <script src="js/controllers/profile.js"></script>
+    <script src="js/controllers/location.js"></script>
+    <script src="templates/dash/sdash.js"></script>
+    <script src="js/controllers/auth.js"></script>
+    <!-- signupcontroller -->
+    <script src="templates/signup/employersignup.js"></script>
+    <script src="templates/signup/seekersignup.js"></script>
+
+    <!-- dashCtrl -->
+    <script src="templates/dash/edash.js"></script>
+    <script src="templates/profile/sprofile.js"></script>
+    <script src="templates/profile/eprofile.js"></script>
+
+    <!--Account-->
+    <script src="templates/account/eAccount.js"></script>
+    <script src="templates/account/sAccount.js"></script>
+
+
+    <script src="lib/angular-cache/dist/angular-cache.min.js"></script>
+
+
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.1.js"></script>
+
+
+
+    <script src="js/directives.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/tinder-tabs.js"></script>
+    <!--<script src="js/directives.js"></script>-->
+
+
+
+
+    <script src="lib/angular-monoelastic.js"></script>
+    <script src="https://code.ionicframework.com/collide/0.0.4/collide.js"></script>
+    <script src="lib/ionic.tdcards2.js"></script>
+  </head>
+  <body ng-app="starter">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+
+</body></html>

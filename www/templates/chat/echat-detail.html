@@ -1,0 +1,65 @@
+
+<ion-view hide-nav-bar="true" ng-init="init()">
+    <ion-header-bar class="bar-positive">
+      <a class="button icon-left ion-chevron-left button-clear" ng-click="$back()"></a>
+
+      <h1 class="title" align="right">{{fromdata.name}}</h1>
+      <i class="button icon-right ion-android-call button-clear animated shake" ng-click="showphone()"></i>
+
+  </ion-header-bar>
+  <ion-content has-bouncing="true"
+               delegate-handle="userMessageScroll">
+    <div class="list card" id="page3-card25">
+      <div class="item item-body" id="page3-list-item-container18">
+        <div id="page3-markdown20" style="text-align:center;" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;">Tips: Hãy bắt đầu trò chuyện với {{fromdata.name}} và đặt lịch phỏng vấn!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div ng-init="clearnewmes()" ng-repeat="message in messages" class="message-wrapper"
+         on-hold="onMessageHold($event, $index, message)">
+      <div ng-if="firebaseUser === message.to && formId === message.from">
+        <div ><a href="#/sprofile/{{fromdata.userId}}">
+          <img  class="profile-pic left" ng-src="{{fromdata.photourl}}" onerror="onProfilePicError(this)" /></a>
+        </div>
+
+        <div class="chat-bubble left">
+
+          <div class="message" ng-bind-html="message.text"></div>
+          <p style="font-size: 10px">{{timeConverter(message.timestamp)}}</p>
+        </div>
+      </div>
+
+      <div ng-if="formId === message.to && firebaseUser === message.from">
+
+        <div>
+          <img class="profile-pic right"
+               ng-src="{{usercurent.photourl}}" onerror="onProfilePicError(this)" />
+        </div>
+
+        <div class="chat-bubble right">
+          <div class="message" ng-bind-html="message.text"></div>
+          <p style="font-size: 10px">{{timeConverter(message.timestamp)}}</p>
+        </div>
+
+      </div>
+
+      <div class="cf"></div>
+
+    </div>
+  </ion-content>
+
+  <form name="sendMessageForm" ng-submit="addMessage()" novalidate>
+    <ion-footer-bar class="item-input-inset message-footer" keyboard-attach>
+      <label class="item-input-wrapper message-box">
+        <textarea ng-model="newMessageText" class="message-box" value="" placeholder="Gửi tin nhắn..." required minlength="1" maxlength="1500" msd-elastic></textarea>
+      </label>
+      <div class="footer-btn-wrap">
+        <button class="button button-clear button-small footer-btn" type="submit"
+                ng-disabled="!newMessageText || newMessageText === ''">Send</button>
+      </div>
+    </ion-footer-bar>
+  </form>
+
+</ion-view>

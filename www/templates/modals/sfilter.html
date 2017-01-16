@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title color-red">Tìm kiếm</h1>
+    <button class="button button-clear button-assertive" ng-click="hidefilter()">
+      Đóng
+    </button>
+  </ion-header-bar>
+  <ion-content padding="false" class="has-header">
+    <!--<ion-list id="filter-list25">-->
+      <!--<ion-item class="item-divider" id="filter-list-item-divider10"> Theo sở thích công việc</ion-item>-->
+      <!--<ion-toggle toggle-class="toggle-positive" ng-model="onfilter.distance" ng-change="pushfilter()" ng-checked="onfilter.distance" id="filter-toggle3">Khoảng cách: {{usercurent.interest.distance}}</ion-toggle>-->
+      <!--<ion-toggle toggle-class="toggle-positive" ng-model="onfilter.job" ng-change="pushfilter()" ng-checked="onfilter.job">Công việc</ion-toggle>-->
+      <!--<ion-toggle toggle-class="toggle-positive" ng-model="onfilter.like" ng-change="pushfilter()" ng-checked="onfilter.like">Đã thích tôi</ion-toggle>-->
+      <label class="item item-input" id="filter-search2">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input force-lower-case type="text" class="bold" placeholder="Tìm" ng-model="searchtext.name">
+      </label>
+      <ion-item class="item-light item-text-wrap item-avatar item-borderless item-icon-right"
+                data-ng-repeat="card in usercard | filter:searchtext:strict" ng-href="#/eviewprofile/{{card.userid}}" ng-click="hidefilter()">
+        <img ng-src="{{card.photourl}}">
+        <h2 class="capitalize font-120">{{card.name}}</h2>
+      <p class="color-gray">{{card.location.address}}</p>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

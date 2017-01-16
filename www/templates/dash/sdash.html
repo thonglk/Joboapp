@@ -1,0 +1,188 @@
+<ion-view hide-nav-bar="true" ng-init="init()">
+
+  <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false" active-slide="slideIndex" ion-slide-tabs>
+    <ion-slide on-drag-left="onRelease()" on-drag-right="onTouch()">
+      <ion-header-bar align-title="center" class="bar-light">
+
+        <div class="buttons">
+          <button ui-sref="sAccount"
+                  class="button button-clear icon ion-gear-b animated"></button>
+        </div>
+        <h1 class="title ">
+        </h1>
+        <div class="buttons" ng-click="slideTo(1)">
+          <button
+            class="button button-clear icon ion-ios-arrow-right animated"></button>
+
+        </div>
+      </ion-header-bar>
+      <ion-content>
+        <div class="padding">
+          <div class="profile-container">
+            <img ui-sref="sprofile" ng-src="{{usercurent.photourl}}" class="profile-image" width="100">
+          </div>
+
+          <div class="text-center padding" style="margin-top:22px;">
+            <h3>{{usercurent.name}}</h3>
+
+          </div>
+          <div class="row" style="text-align: center;
+    font-size: 15px;">
+            <div class="col col-50" ng-click="viewliked()">Quan tâm <p style="font-size: 25px">
+              {{usercurent.starCount}}</p></div>
+            <div class="col">Điểm profile<p style="font-size: 25px">{{point*20}}%</p></div>
+          </div>
+          <div id="profile2-markdown17" style="text-align:center;" class="show-list-numbers-and-dots">
+            <p style="color: #b2b2b2;" ng-if="usercurent.starCount == 0">Để "match" với nhà tuyển dụng, bạn cần hoàn
+              thiện thông tin cá nhân</p>
+
+          </div>
+          <button ui-sref="sprofile" class="jobo-button jobo-button-block jobo-button-calm">Cập nhật thông tin
+          </button>
+          <div class="list">
+
+            <div class="item item-button-right">
+              Chia sẻ để đấy hồ sơ lên <br> top khu vực trong 1 giờ
+              <button ng-click="share()" class="button button-positive" style="margin-top: 10px;">
+                <i class="icon ion-android-share-alt"></i>
+              </button>
+            </div>
+
+          </div>
+          <button ui-sref="sAccount" id="profile2-button23" class="button button-dark  button-full button-clear">
+            Tài Khoản
+          </button>
+
+        </div>
+      </ion-content>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-header-bar align-title="center" class="bar-light
+">
+
+        <div class="buttons" ng-click="slideTo(0)">
+          <button class="button button-clear icon ion-person animated "></button>
+        </div>
+        <h1 class="title " ng-click="slideTo(1)">
+          <img src="img/Jobo.png" style="width: 60px; margin-top: 5px">
+        </h1>
+        <div class="buttons" ng-click="slideTo(2)">
+          <button
+            class="button button-clear icon ion-chatbubbles animated "></button>
+          <span ng-if="checknewmessage()" class="badge badge-assertive"
+                style="padding-left: -10;padding-top: 1px; padding-right: 1px;padding-bottom: 1px; height: 17px; width: 17px; margin-left: -10">{{totalcount}}</span>
+        </div>
+      </ion-header-bar>
+      <ion-content scroll="false">
+        <ion-item class="item-icon-left item-icon-right item" id="profile-list-item15" style="
+    border-bottom-width: 0px;
+">
+          <i class="icon ion-ios-search-strong" ng-click="showfilter()"></i>
+          <div ng-if="!usercurent.location.location.lat">Hãy cập nhật địa chỉ để hiển thị công việc gần bạn  </div>
+
+          <div ng-if="usercard.length != 0">Có {{usercard.length}} công việc gần bạn</div>
+          <div ng-if="!usercard.length">Nhấn <i class="ion-refresh" ng-click="doRefresh()"></i>
+            để tải công việc gần bạn
+          </div>
+
+          <i class="icon ion-refresh" ng-click="doRefresh()"></i>
+        </ion-item>
+        <ks-swiper-container swiper="swiper" on-ready="onReadySwiper(swiper)" on-touch="ontouch(swiper)">
+          <ks-swiper-slide class="swiper-slide" ng-repeat="card in usercard">
+
+            <div class="list card td-card" id="page2-card26">
+              <div id="page2-container11">
+                <div style="
+    height: 250px;
+">
+                  <a href="#/eviewprofile/{{ card.userid}}"><img src="{{ card.photourl }}" style="width: 100%"></a>
+                </div>
+              </div>
+              <div ng-show="card.stars[userid]" class="padding animated bounceInUp">
+                <i class="icon ion-heart" style="color: #ee5555;"></i>
+              </div>
+              <ion-item class="item-icon-right" id="page2-list-item33">
+                <h2>{{card.name}}</h2>
+                <i class="icon ion-heart" style="color: #ff6961" ng-if="usercurent.stars[card.userid]"></i>
+
+                <p><i class="ion-location"></i> {{ card.distance }} km</p>
+
+              </ion-item>
+              <div class="padding" ng-if="card.interest.job">
+                <label ng-repeat="(key,value) in card.interest.job">
+                  <button class="button margin-top-5 button-outline button-small button-positive">{{dataJob[key]}}
+                  </button>
+                </label>
+              </div>
+
+            </div>
+
+            <p class="animated fadeInUp" style="text-align: center;background: -webkit-linear-gradient(#1FBDF1 , #39DFA5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;" ng-if="userliked[card.userid]">Bạn đã ứng tuyển công việc này!</p>
+            <p class="animated fadeInUp" style="text-align: center" ng-if="userdisliked[card.userid]">Bạn đã không thích
+              công việc này!</p>
+
+          </ks-swiper-slide>
+        </ks-swiper-container>
+
+        <div class="ptinder-buttons">
+          <div class="ptinder-button  animated fadeInRightBig" ng-click="dislike()"></div>
+          <div class="ptinder-button  animated fadeInLeftBig" ng-click="like()"></div>
+        </div>
+      </ion-content>
+    </ion-slide>
+
+
+    <ion-slide on-drag-left="onTouch()" on-drag-right="onRelease()">
+      <ion-header-bar align-title="center" class="bar-light ">
+
+        <div class="buttons" ng-click="slideTo(1)">
+          <button
+            class="button button-clear icon ion-ios-arrow-left animated "></button>
+        </div>
+        <h1 class="title">
+          Match
+        </h1>
+
+      </ion-header-bar>
+      <ion-content>
+        <div class="item-input-inset">
+          <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input force-lower-case type="text" class="bold" placeholder="Tìm" ng-model="searchtext.name">
+          </label>
+
+        </div>
+
+
+        <div id="profile2-markdown17" style="text-align:center;" class="show-list-numbers-and-dots">
+          <p style="color: #b2b2b2;" ng-if="!usercurent.match">Bạn có thể chat với những nhà tuyển dụng đã match với bạn
+            tại đây</p>
+
+        </div>
+        <ion-list>
+          <ion-item class="item-light item-text-wrap item-avatar item-borderless item-icon-right"
+                    data-ng-repeat="card in userchat | filter:searchtext:strict" ng-href="#/schats/{{card.userid}}"
+                    ng-if="card.match[userid]">
+            <img ng-src="{{card.photourl}}">
+            <h2 class="capitalize font-120">{{card.name}}</h2><span class="badge badge-assertive"
+                                                                    ng-if="newmessage[card.userid]">{{newmessage[card.userid]}}</span>
+
+          </ion-item>
+          <ion-item class="item-light item-text-wrap item-avatar item-borderless item-icon-right"
+                    ng-href="#/schats/u7vqbG5VgxgOczR4t0TBfNzM1b93">
+            <img ng-src="{{Objcards.u7vqbG5VgxgOczR4t0TBfNzM1b93.photourl}}">
+            <h2 class="capitalize font-120">{{Objcards.u7vqbG5VgxgOczR4t0TBfNzM1b93.name}}</h2><span
+            class="badge badge-assertive"
+            ng-if="newmessage.u7vqbG5VgxgOczR4t0TBfNzM1b93">{{newmessage[u7vqbG5VgxgOczR4t0TBfNzM1b93]}}</span>
+            <p>Hướng dẫn, trợ giúp và phản hồi</p>
+
+          </ion-item>
+        </ion-list>
+
+      </ion-content>
+    </ion-slide>
+  </ion-slide-box>
+</ion-view>

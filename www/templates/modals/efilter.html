@@ -1,0 +1,55 @@
+<ion-modal-view title="Lựa chọn ">
+
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Lọc ứng viên</h1>
+
+  </ion-header-bar>
+  <ion-content>
+    <div class="list" ng-hide="newfilter.onlydistance">
+      <p style="margin-top: 8px;">&nbsp;</p>
+      <div class="padding color-gray">Vị trí cần tuyển</div>
+      <ion-item class="item-icon-right" ng-click="showjob()">
+        <span class="gotham-book">{{dataJob[newfilter.job]}}</span>
+        <i class="icon ion-ios-arrow-forward color-gray font-130 bold"></i>
+      </ion-item>
+      <p style="margin-top: 8px;">&nbsp;</p>
+      <div class="padding color-gray">Yêu cầu kinh nghiệm tối thiểu</div>
+      <ion-item class="range range-positive" id="profile-range2">{{newfilter.experience}} tháng
+        <input type="range" on-tap="onTap($event)" on-drag="onTap($event)" value="{{filter.experience}}" min="0"
+               max="50" step="0.5" name="distance" ng-model="newfilter.experience">
+      </ion-item>
+      <p style="margin-top: 8px;">&nbsp;</p>
+      <div class="padding color-gray">Ca làm việc</div>
+      <ion-item class="item-icon-right" ng-click="showtime()">
+        <span class="gotham-book">{{time[newfilter.time]}}</span>
+        <i class="icon ion-ios-arrow-forward color-gray font-130 bold"></i>
+      </ion-item>
+    </div>
+    <div class="list">
+
+      <p style="margin-top: 8px;">&nbsp;</p>
+      <div class="padding color-gray">Bán kính tìm kiếm</div>
+      <ion-item class="range range-positive" id="profile-range2">{{newfilter.distance}} km
+        <input type="range" on-tap="onTap($event)" on-drag="onTap($event)" value="{{filter.distance}}" min="0"
+               max="50" step="0.5" name="distance" ng-model="newfilter.distance">
+      </ion-item>
+
+      <p style="margin-top: 8px;">&nbsp;</p>
+      <ion-toggle ng-model="newfilter.onlydistance"
+                  toggle-class="toggle-assertive" ng-checked='newfilter.onlydistance'>
+        <span class="bold">Chỉ cần thoả mãn bán kính tìm kiếm</span>
+      </ion-toggle>
+      <p class="padding color-gray">Hiển thị các ứng viên xung quanh với vị trí và thời gian bất kì.</p>
+      <p style="margin-top: 8px;">&nbsp;</p>
+    </div>
+    <div class="padding">
+      <button id="profile-button57" style="border-radius:0px 0px 0px 0px;"
+              class="jobo-button jobo-button-block jobo-button-calm"
+              ng-click="createHospital()">Lọc ứng viên
+      </button>
+      <button ng-click="cancel()" id="profile2-button23" class="button button-assertive  button-full button-clear">
+        Hủy
+      </button>
+    </div>
+  </ion-content>
+</ion-modal-view>

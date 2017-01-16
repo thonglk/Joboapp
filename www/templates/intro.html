@@ -1,0 +1,25 @@
+<ion-view hide-back-button="true" title="Jobo" hide-nav-bar="true">
+  <ion-content ng-init="checkuser()" scroll="false">
+
+    <div id="bg" style="background-image: url('img/nen2.jpg');">
+      <div id="search-container">
+        <div id="search" style="height:{{deviceHeight}}px">
+          <img src="img/Jobo.png" style="width: 150px;padding-top: 150px;display: block;margin: 0 auto;">
+          <a ng-href="#/ssignup">
+
+            <button class="jobo-button jobo-button-block jobo-button-calm">Tôi muốn tìm việc
+            </button>
+          </a>
+          <a ng-href="#/esignup">
+            <button class="jobo-button button-block button-balanced">Tôi muốn tuyển dụng</button>
+          </a>
+          <div class="text-center" style="margin-top:30px;">
+            <button class="button button-block button-clear button-stable font-default" ui-sref="login">Đã có tài khoản
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

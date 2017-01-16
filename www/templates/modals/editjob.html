@@ -1,0 +1,29 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title color-red">Lựa chọn công việc</h1>
+    <button class="button button-clear button-assertive" ng-click="hideeditjob()">
+      Trở về
+    </button>
+  </ion-header-bar>
+  <ion-content class="bg-color-stable profile-edit-container" >
+    <div class="padding">
+      <tags-input ng-model="tags" display-property="name" placeholder="Thêm công việc" max-tags="1" limit-tags
+                  replace-spaces-with-dashes="false">
+        <auto-complete source="loadCountries($query)"
+                       min-length="0"
+                       load-on-focus="true"
+                       load-on-empty="false"
+                       max-results-to-show="9"
+                       template="my-custom-template"></auto-complete>
+      </tags-input>
+    </div>
+    <button id="profile-button56" style="border-radius:0px 0px 0px 0px;"
+            class="jobo-button jobo-button-block jobo-button-calm" ng-disabled="!tags || tags === ''" ng-click="saveinterestjob()">Lưu
+    </button>
+
+  </ion-content>
+  <script type="text/ng-template" id="my-custom-template">
+    <span ng-bind-html="$highlight($getDisplayText())"></span>
+    <span>({{data.industry}})</span>
+  </script>
+</ion-modal-view>

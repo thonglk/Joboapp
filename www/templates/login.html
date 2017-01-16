@@ -1,0 +1,38 @@
+<ion-view title="Đăng nhập" hide-nav-bar="true" hide-back-button="true" cache-view="false" nav-transition="none" id="page20">
+  <ion-content padding="false" style="background-color: #EDF7FF;" class=" manual-remove-top-padding" scroll="false">
+    <div class="padding">
+      <div style="text-align: center">
+        <h3 style="    margin-top: 50px;
+">ĐĂNG NHẬP</h3>
+      </div>
+      <form name="form_login" ng-submit="doLogin(userLogin)" novalidate>
+        <div class="list">
+
+          <label class="item item-input">
+            <input type="email" ng-model="$parent.userLogin.username" id="user_name" placeholder="Email">
+          </label>
+
+          <label class="item item-input">
+            <input type="password" ng-model="$parent.userLogin.password" id="user_pass" placeholder="Mật khẩu">
+          </label>
+
+        </div>
+        <button type="submit" class="jobo-button jobo-button-block jobo-button-calm" ng-disabled="!$parent.userLogin.username || !$parent.userLogin.password || $parent.userLogin.username === '' ||$parent.userLogin.password === ''">Đăng nhập</button>
+      </form>
+    </div>
+
+    <div class="row row-no-padding">
+      <div class="col">
+        <button type="submit" class="button button-clear" ui-sref="reset">
+          Quên mật khẩu?
+        </button>
+      </div>
+
+      <div class="col text-right">
+        <button type="submit" class="button button-clear" ui-sref="intro">
+          Đăng ký
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

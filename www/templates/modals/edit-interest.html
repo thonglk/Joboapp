@@ -1,0 +1,64 @@
+<ion-modal-view title="Lựa chọn ">
+
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Sở thích công việc</h1>
+
+  </ion-header-bar>
+  <ion-content>
+    <div class="padding">
+      <div class="list card" id="profile-card215">
+        <ion-item class="item-icon-left" id="profile-list-item34">
+          <i class="icon ion-ios-briefcase"></i>Lựa chọn công việc
+        </ion-item>
+        <ion-item class="item-icon-right" ng-click="showjob()">
+          <span class="gotham-book" ng-if="!newHospital.job">Nhấn để thêm công việc,</span>
+          <span class="gotham-book" ng-repeat="(key,value) in newHospital.job">{{dataJob[key]}},</span>
+          <i class="icon ion-ios-arrow-forward color-gray font-130 bold"></i>
+        </ion-item>
+      </div>
+
+
+    </div>
+
+
+    <div class="list card" id="profile-card215">
+      <ion-item class="item-icon-left" id="profile-list-item34">
+        <i class="icon ion-ios-timer"></i>Thời gian đi làm phù hợp
+      </ion-item>
+      <form id="profile-form10" class="list">
+        <label class="checkbox-inline" ng-repeat="(key, value) in time">
+          <ion-list>
+
+            <ion-checkbox id="{{ key }}" value="{{ key }}" ng-model="newHospital.time[key]">{{ value }}</ion-checkbox>
+          </ion-list>
+
+        </label>
+
+      </form>
+
+    </div>
+
+
+    <div class="list card" id="profile-card216" drag-content="false">
+      <ion-item class="item-icon-left" id="profile-list-item36">
+        <i class="icon ion-android-bicycle"></i>Khoảng cách tới chỗ làm: {{newHospital.distance}} km
+      </ion-item>
+      <form id="profile-form11" class="list">
+        <ion-item class="range range-positive" id="profile-range2">Km
+          <input type="range" on-tap="onTap($event)" on-drag="onTap($event)" value="{{interest.distance}}" min="0"
+                 max="50" step="0.5" name="distance" ng-model="newHospital.distance">
+        </ion-item>
+
+      </form>
+    </div>
+    <div class="padding">
+      <button id="profile-button57" style="border-radius:0px 0px 0px 0px;"
+              class="jobo-button jobo-button-block jobo-button-calm"
+              ng-click="createHospital()">Lưu
+      </button>
+      <button ng-click="cancel()" id="profile2-button23" class="button button-assertive  button-full button-clear">
+        Hủy
+      </button>
+    </div>
+  </ion-content>
+</ion-modal-view>

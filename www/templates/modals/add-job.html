@@ -1,0 +1,61 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Thêm kinh nghiệm làm việc</h1>
+    <div class="buttons">
+      <button class="button" ng-click="hideProfile()">Hủy</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" ng-model="job.company" placeholder="Nơi làm việc">
+      </label>
+      <ion-item class="item-icon-right" ng-click="showjob()">
+        <span class="gotham-book" ng-if="!newHospital.job">Vị trí</span>
+        <span class="gotham-book" ng-repeat="(key,value) in newHospital.job">{{dataJob[key]}},</span>
+        <i class="icon ion-ios-arrow-forward color-gray font-130 bold"></i>
+      </ion-item>
+
+
+      <div class="row">
+
+
+        <div class="col col-50">
+          <span>Bắt đầu</span>
+        </div>
+        <div class="col">
+          <input type="month" ng-model="job.monthstartselected">
+        </div>
+      </div>
+      <div class="row">
+
+
+        <div class="col col-50">
+          <span>Kết thúc</span>
+        </div>
+        <div class="col">
+          <input type="month" ng-model="job.monthendselected">
+        </div>
+
+      </div>
+
+    </div>
+    <div class="list">
+
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Lĩnh vực
+        </div>
+        <select ng-model="job.industry">
+          <option ng-repeat="(key,value) in industry" value="{{key}}">{{value}}</option>
+        </select>
+      </label>
+
+    </div>
+
+    <button class="jobo-button jobo-button-block jobo-button-calm" ng-click="savejob(job)">Lưu</button>
+    </div>
+
+  </ion-content>
+</ion-modal-view>

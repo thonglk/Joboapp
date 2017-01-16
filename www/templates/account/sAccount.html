@@ -1,0 +1,59 @@
+<ion-view title="Tài khoản cá nhân" id="page18">
+  <ion-content padding="false" class="has-header">
+    <ion-list id="eAccount-list16">
+      <ion-item class="item-divider" id="eAccount-list-item-divider4"> Tài khoản</ion-item>
+      <ion-item id="eAccount-list-item25" ng-click="editname()">Họ tên
+        <span class="item-note">{{usercurent.name}}</span>
+      </ion-item>
+      <ion-item id="eAccount-list-item26" ng-click="editschool()">Trường
+        <span class="item-note">{{usercurent.school}}</span>
+      </ion-item>
+      <ion-item ng-click="editbirth()">Tuổi
+        <span class="item-note">{{calculateAge(usercurent.birth)}}</span>
+      </ion-item>
+      <ion-item id="eAccount-list-item37" ng-click="editaddress()">Địa chỉ
+        <span class="item-note">{{usercurent.location.address}}</span>
+      </ion-item>
+    </ion-list>
+    <ion-list id="eAccount-list18">
+      <ion-item class="item-divider" id="eAccount-list-item-divider5"> Liên hệ</ion-item>
+      <ion-item id="eAccount-list-item38">Email
+        <span class="item-note">{{usercurent.email}}</span>
+      </ion-item>
+      <ion-item class="dark" id="eAccount-list-item39">SĐT
+        <span class="item-note">{{usercurent.mobile}}</span>
+      </ion-item>
+    </ion-list>
+    <ion-list id="eAccount-list19">
+      <ion-item class="item-divider" id="eAccount-list-item-divider6"> Cài đặt</ion-item>
+      <ion-toggle toggle-class="toggle-positive" id="eAccount-toggle2">Ẩn hiện thị</ion-toggle>
+    </ion-list>
+
+    <p style="margin-top: 4px;">&nbsp;</p>
+    <div class="padding color-gray">CONTACT US</div>
+    <ion-item class="text-center " href="mailto:contact@joboapp.com">Help & Support</ion-item>
+    <p style="margin-top: 4px;">&nbsp;</p>
+    <ion-item class="text-center" href="mailto:contact@joboapp.com">Give Us Feedback</ion-item>
+
+    <p style="margin-top: 4px;">&nbsp;</p>
+    <ion-item class="text-center" ng-click="share()">Share Jobo</ion-item>
+
+    <p style="margin-top: 4px;">&nbsp;</p>
+    <div class="padding color-gray">Legal</div>
+    <ion-item class="item-icon-right">
+      Privacy Policy
+      <i class="icon ion-ios-arrow-forward color-gray font-130 bold"></i>
+    </ion-item>
+    <ion-item class="item-icon-right">
+      Terms of Service
+      <i class="icon ion-ios-arrow-forward color-gray font-130 bold"></i>
+    </ion-item>
+    <ion-item class="item-icon-right ">
+      Licenses
+      <i class="icon ion-ios-arrow-forward color-gray font-130 bold"></i>
+    </ion-item>
+    <p style="margin-top: 4px;">&nbsp;</p>
+    <ion-item ng-click="doLogout()" class="text-center">Logout</ion-item>
+
+  </ion-content>
+</ion-view>

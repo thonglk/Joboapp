@@ -1,0 +1,44 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-stable">
+    <button class="button" ng-click="updateavatar()">Hủy</button>
+    <h1 class="title" >
+      Thông tin cá nhân
+    </h1>
+    <div class="buttons">
+      <button class="button" ng-click="hideProfile()">Hủy</button>
+    </div>
+  </ion-header-bar>
+  <ion-content padding="true" class="has-header">
+    <form id="thNgTinCNhN-form17" class="list" ng-submit="doUpdate(user)" novalidate>
+      <ion-list id="thNgTinCNhN-list13">
+        <label class="item item-input item-stacked-label" id="thNgTinCNhN-input11">
+          <span class="input-label">Họ và tên:</span>
+          <input type="text" placeholder="Vui lòng điền đầy đủ họ tên" ng-model="user.name">
+        </label>
+        <label class="item item-input item-stacked-label" id="thNgTinCNhN-input14">
+          <span class="input-label">Trường đã / đang học</span>
+          <input type="text" placeholder="VD: Đại học Ngoại Thương" ng-model="user.school">
+        </label>
+        <label class="item item-input item-stacked-label" id="thNgTinCNhN-input12">
+          <span class="input-label">Ngày sinh:</span>
+          <input type="date" placeholder="" ng-model="user.birth">
+        </label>
+        <label class="item item-input item-stacked-label" id="thNgTinCNhN-input13">
+          <span class="input-label">Địa chỉ</span>
+          <input type="text" ng-model="autocomplete.text" placeholder="Đường/phố/quận/tỉnh..." ng-change="search()">
+        </label>
+        <label class="checkbox-inline" ng-repeat="ketqua in ketquas | limitTo:quantity ">
+          <ion-list>
+            <ion-radio ng-value="ketqua" ng-click="setSelectedAddress(ketqua)">{{ketqua.formatted_address}}</ion-radio>
+          </ion-list>
+        </label>
+      </ion-list>
+      <button id="thNgTinCNhN-button69" style="border-radius:0px 0px 0px 0px;"
+              class="button button-positive  button-block" type="submit">Lưu
+      </button>
+    </form>
+  </ion-content>
+</ion-modal-view>
+
+
+

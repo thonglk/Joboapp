@@ -1,0 +1,47 @@
+<ion-view title="Cập nhật thông tin" id="page11" ng-init="init()">
+  <ion-content padding="false" class="has-header">
+
+
+    <div id="profile-container5">
+      <div class="list card" id="profile-card21" style="
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+">
+        <img ng-click="updateavatar()" ng-src="{{usercurent.photourl}}" class="profile-image" width="100%">
+        <i ng-click="updateavatar()"
+           class="button button-positive button-small button-clear icon-left ion-images">Sửa</i>
+
+      </div>
+      <ion-list class="list-borderless">
+        <ion-item>
+
+          <h2 class="font-130">{{usercurent.name}}</h2>
+          <p class="color-gray">{{usercurent.location.address}}</p>
+          <button class="button margin-top-5 button-outline button-small button-positive">
+            {{industry[usercurent.industry]}}
+          </button>
+        </ion-item>
+      </ion-list>
+      <div class="padding animated bounceInUp">
+        <hr>
+        <h4>
+          Vị trí cần tuyển <i ng-click="editjob()"
+                              class="button button-positive button-small button-clear icon-left ion-android-create">Sửa</i>
+        </h4>
+
+        <label ng-repeat="(key,value) in usercurent.interest.job">
+          <button class="button margin-top-5 button-outline button-small button-positive">{{dataJob[key]}}</button>
+        </label>
+        <hr>
+        <h4>
+          Mô tả:<i ng-click="editjobdes()"
+                            class="button button-positive button-small button-clear icon-left ion-android-create">Sửa</i>
+        </h4>
+        <p>{{usercurent.description}}</p>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

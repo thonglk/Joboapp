@@ -1,0 +1,75 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title color-red">Tìm kiếm</h1>
+    <button class="button button-clear button-assertive" ng-click="hideeditjob()">
+      Trở về
+    </button>
+  </ion-header-bar>
+  <ion-content class="bg-color-stable profile-edit-container" scroll="true">
+    <div class="padding">
+      <div class="list card" id="profile-card215">
+        <ion-item class="item-icon-left" id="profile-list-item34">
+          <i class="icon ion-ios-briefcase"></i>Lựa chọn công việc
+        </ion-item>
+        <div class="padding">
+          <tags-input ng-model="tags" display-property="name" placeholder="Thêm công việc"
+                      replace-spaces-with-dashes="true">
+            <auto-complete source="loadCountries($query)"
+                           min-length="0"
+                           load-on-focus="true"
+                           load-on-empty="false"
+                           max-results-to-show="9"
+                           template="my-custom-template"></auto-complete>
+          </tags-input>
+        </div>
+        <button id="profile-button56" style="border-radius:0px 0px 0px 0px;"
+                class="jobo-button jobo-button-block jobo-button-calm" ng-disabled="!tags || tags === ''"
+                ng-click="saveinterestjob()">Lưu
+        </button>
+      </div>
+
+
+      <script type="text/ng-template" id="my-custom-template">
+        <span ng-bind-html="$highlight($getDisplayText())"></span>
+        <span>({{data.industry}})</span>
+      </script>
+    </div>
+
+
+    <div class="list card" id="profile-card215">
+      <ion-item class="item-icon-left" id="profile-list-item34">
+        <i class="icon ion-ios-timer"></i>Thời gian đi làm
+      </ion-item>
+      <form id="profile-form10" class="list">
+        <label class="checkbox-inline" ng-repeat="(key, value) in time">
+          <ion-list>
+
+            <ion-checkbox id="{{ key }}" value="{{ key }}" ng-model="newHospital.time[key]">{{ value }}</ion-checkbox>
+          </ion-list>
+
+        </label>
+
+      </form>
+      <button id="profile-button56" style="border-radius:0px 0px 0px 0px;"
+              class="jobo-button jobo-button-block jobo-button-calm"
+              ng-click="createHospital()">Lưu
+      </button>
+    </div>
+
+    <div class="list card" id="profile-card216">
+      <ion-item class="item-icon-left" id="profile-list-item36">
+        <i class="icon ion-android-bicycle"></i>Khoảng cách tìm kiếm: {{newHospital.distance}} km
+      </ion-item>
+      <form id="profile-form11" class="list">
+        <ion-item class="range range-positive" id="profile-range2">Km
+          <input type="range" value="-3" min="0" max="50" step="0.5" name="distance" ng-model="newHospital.distance">
+        </ion-item>
+
+      </form>
+    </div>
+    <button id="profile-button57" style="border-radius:0px 0px 0px 0px;"
+            class="button button-positive  button-block" ng-click="createHospital()">Hoàn tất
+    </button>
+
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,30 @@
+<ion-modal-view>
+  <ion-content>
+
+    <div id="bg" style="background-image: url('img/match.jpg');">
+      <div id="search-container">
+        <div id="search" style="height:{{deviceHeight}}px">
+          <h1>Chúc mừng!</h1>
+          <p class="font-default">Bạn và {{matched.name}} đã "match" nhau! </p>
+          <div class="text-center" style="margin-top:45px;">
+            <img ng-src="{{usercurent.photourl}}" style="margin-right:10px;" height="130" width="130"
+                 class="img-matched animated bounceInLeft" alt="">
+            <img ng-src="{{matched.photourl}}" height="130" width="130" class="img-matched animated bounceInRight"
+                 alt="">
+          </div>
+          <div class="text-center match-buttons">
+            <a href="#/schats/{{matched.userid}}" ng-click="hideMatch()">
+              <button class="jobo-button jobo-button-block  jobo-button-calm"><i
+                class="ion-chatbubbles font-130"></i> Chat với {{matched.name}}
+              </button>
+            </a>
+            <button ng-click="hideMatch()" class="button button-block button-stable button-outline"
+                    style="margin-top:17px;"><i class="ion-ios-browsers font-130"></i> Tiếp tục khám phá
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-modal-view>

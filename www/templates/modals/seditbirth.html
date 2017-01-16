@@ -1,0 +1,19 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title color-red">Ngày sinh</h1>
+    <button class="button button-clear button-assertive" ng-click="hideeditdes()">
+      Trở về
+    </button>
+  </ion-header-bar>
+  <ion-content class="bg-color-stable profile-edit-container" >
+    <form name="form_signup" ng-submit="savejobdes(usercurent)" novalidate>
+      <label class="item item-input item-stacked-label" id="thNgTinCNhN-input12">
+        <input type="date" placeholder="VD: 04/07/1996" ng-model="usercurent.birth">
+      </label>
+      <div class="padding">
+        <button type="submit" class="jobo-button jobo-button-block jobo-button-calm">Lưu</button>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,46 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="$back()">Back</a>
+
+  </ion-header-bar>
+  <ion-content>
+
+    <div class="list">
+      <div class="item item-image">
+
+        <img ng-src="{{usercurent.photourl}}">
+      </div>
+      <ion-list class="list-borderless">
+        <ion-item>
+          <h2 class="font-130">{{usercurent.name}}</h2>
+          <p class="color-gray">{{usercurent.location.address}}</p>
+          <button class="button margin-top-5 button-outline button-small button-positive">
+            {{industry[usercurent.industry]}}
+          </button>
+        </ion-item>
+      </ion-list>
+      <div class="padding animated bounceInUp">
+        <hr>
+        <h4>
+          Vị trí cần tuyển
+        </h4>
+        <label ng-repeat="(key,value) in usercurent.interest.job">
+          <button class="button margin-top-5 button-outline button-small button-positive">{{dataJob[key]}}</button>
+        </label>
+        <hr>
+        <h4>
+          Mô tả:
+        </h4>
+        <p>{{usercurent.description}}</p>
+
+      </div>
+
+    </div>
+    <div style="height: 250px"></div>
+
+  </ion-content>
+  <div class="ptinder-buttons">
+    <div class="ptinder-button  animated fadeInRightBig" ng-click="dislike(usercurent.userid)"></div>
+    <div class="ptinder-button  animated fadeInLeftBig" ng-click="like(usercurent.userid)"></div>
+  </div>
+</ion-modal-view>

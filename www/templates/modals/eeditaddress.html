@@ -1,0 +1,20 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Địa chỉ</h1>
+    <button class="button button-clear button-assertive" ng-click="hideeditdes()">
+      Trở về
+    </button>
+  </ion-header-bar>
+  <ion-content class="bg-color-stable profile-edit-container">
+    <label class="item item-input item-floating-label">
+      <input type="text" ng-model="autocomplete.text" placeholder="Đường/phố/quận/tỉnh..." ng-change="search()">
+    </label>
+    <label class="checkbox-inline" ng-repeat="ketqua in ketquas | limitTo:3">
+      <ion-list>
+        <ion-radio ng-value="ketqua" ng-click="setSelectedAddress(ketqua)">{{ketqua.formatted_address}}</ion-radio>
+      </ion-list>
+    </label>
+    <button class="jobo-button jobo-button-block jobo-button-calm" ng-click="saveaddress()"> Hoàn tất</button>
+
+  </ion-content>
+</ion-modal-view>

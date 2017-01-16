@@ -1,0 +1,194 @@
+<ion-view title="Đăng ký" hide-nav-bar="true" hide-back-button="true" cache-view="false" nav-transition="none"
+          id="page20">
+  <ion-content padding="false" style="background-color: #EDF7FF;" class=" manual-remove-top-padding" scroll="false">
+    <ion-slide-box show-pager="false" on-slide-changed="slideChanged(index)" ng-init="lockSlide()">
+      <ion-slide>
+
+        <form name="form_signup">
+          <div class="padding">
+            <div style="text-align: center">
+              <h3>Email</h3>
+              <p>Email nhận thông báo từ ứng viên!</p>
+            </div>
+            <div class="list">
+
+
+              <label class="item item-input">
+                <input type="email" ng-model="userSignup.cusername" id="cuser_name" placeholder="Email">
+              </label>
+
+            </div>
+            <button ng-click="next()" class="jobo-button jobo-button-block jobo-button-calm"
+                    ng-disabled="!userSignup.cusername || userSignup.cusername === ''">Tiếp
+            </button>
+          </div>
+
+        </form>
+
+
+      </ion-slide>
+      <ion-slide>
+
+        <form name="form_signup" ng-submit="doSignup(userSignup)" novalidate>
+          <div class="padding">
+
+            <div class="list">
+              <div style="text-align: center">
+                <h3>MẬT KHẨU</h3>
+              </div>
+              <label class="item item-input">
+                <input type="password" ng-model="userSignup.cpassword" id="cuser_pass" placeholder="Password">
+              </label>
+            </div>
+
+            <button type="submit" class="jobo-button jobo-button-block jobo-button-calm"
+                    ng-disabled="!userSignup.cpassword || userSignup.cpassword === ''">Tiếp
+            </button>
+          </div>
+
+        </form>
+
+
+      </ion-slide>
+
+      <ion-slide>
+
+        <div class="padding">
+
+          <form name="form_signup" ng-submit="doUpdate(userSignup)" novalidate>
+            <div class="list">
+              <div style="text-align: center">
+                <h3>SỐ ĐIỆN THOẠI</h3>
+              </div>
+              <label class="item item-input">
+                <input type="tel" ng-model="userSignup.phone" placeholder="VD: 0968269860">
+              </label>
+
+
+            </div>
+            <button type="submit" class="jobo-button jobo-button-block jobo-button-calm"
+                    ng-disabled="!userSignup.phone || userSignup.phone === ''">Tiếp
+            </button>
+          </form>
+        </div>
+        <div class="list card" id="page3-card25">
+          <div class="item item-body" id="page3-list-item-container18">
+            <div id="page3-markdown20" style="text-align:center;" class="show-list-numbers-and-dots">
+              <p style="margin-top:0px;">Tips: Điền chính xác số điện thoại để nhận thông báo
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </ion-slide>
+      <ion-slide>
+
+        <div class="padding">
+
+          <form name="form_signup" ng-submit="Update(userSignup)" novalidate>
+            <div class="list">
+
+              <label class="item item-input">
+                <input type="text" ng-model="userSignup.displayname" id="display_name" placeholder="Tên thương hiệu của bạn ">
+              </label>
+
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Lĩnh vực
+                </div>
+                <select ng-model="userSignup.industry">
+                  <option ng-repeat="(key,value) in industry" value="{{key}}">{{value}}</option>
+                </select>
+              </label>
+
+            </div>
+            <button type="submit" class="jobo-button jobo-button-block jobo-button-calm"
+                    ng-disabled="!userSignup.displayname || userSignup.displayname === ''|| !userSignup.industry || userSignup.industry === ''">
+              Tiếp
+            </button>
+          </form>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="padding">
+          <div style="text-align: center">
+            <h3>ĐỊA CHỈ</h3>
+            <P>Điền địa chỉ công ty bạn để hiển thị các ứng viên trong khu vực</P>
+          </div>
+          <label class="item item-input">
+            <input type="text" ng-model="autocomplete.text" placeholder="Nhập từ khoá để tìm kiếm " ng-change="search()">
+          </label>
+          <label class="checkbox-inline" ng-repeat="ketqua in ketquas | limitTo:3 ">
+            <ion-list>
+              <ion-radio ng-value="ketqua" ng-click="setSelectedAddress(ketqua)">{{ketqua.formatted_address}}
+              </ion-radio>
+            </ion-list>
+          </label>
+
+          <button class="jobo-button jobo-button-block jobo-button-calm" ng-click="saveaddress()"
+                  ng-disabled="!address || address === ''"> Tiếp
+          </button>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <ion-header-bar>
+          <h1 class="title">Giới thiệu</h1>
+        </ion-header-bar>
+        <div class="padding">
+          <div class="list card" id="update-card26">
+            <ion-item class="item-icon-left calm" id="update-list-item35">
+              <i class="icon ion-android-contact"></i>Cập nhật ảnh thương hiệu
+            </ion-item>
+            <div style="margin: 0px; line-height: 250px; text-align: center; background-color: rgb(232, 235, 239);">
+              <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
+            </div>
+          </div>
+          <button ng-click="updateavatar()" class="jobo-button jobo-button-block jobo-button-calm">Thay ảnh
+          </button>
+          <button ng-click="next()" id="update-button17" class="button button-stable  button-block button-clear">Để
+            sau
+          </button>
+        </div>
+      </ion-slide>
+      <ion-slide ng-init="loadautojob()">
+        <ion-header-bar>
+          <h1 class="title">Vị trí cần tuyển</h1>
+        </ion-header-bar>
+        <div class="padding">
+          <div class="list card" id="profile-card215">
+            <ion-item class="item-icon-left" id="profile-list-item34">
+              <i class="icon ion-ios-briefcase"></i>Vị trí cần tuyển
+            </ion-item>
+            <ion-item class="item-icon-right" ng-click="showjob()">
+              <span class="gotham-book" ng-if="!newHospital.job">Nhấn để thêm công việc,</span>
+              <span class="gotham-book" ng-repeat="(key,value) in newHospital.job">{{dataJob[key]}}, </span>
+              <i class="icon ion-ios-arrow-forward color-gray font-130 bold"></i>
+            </ion-item>
+          </div>
+          <button ng-click="saveinterestjob()" class="jobo-button jobo-button-block jobo-button-calm">Tiếp</button>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="padding" style="text-align: center">
+          <h3>Bắt đầu chọn ứng viên bạn thích</h3>
+          <div style="margin: 30px">
+            <img src="http://joboapp.com/wp-content/uploads/2016/12/intro-2.jpg" style="width: 250px">
+          </div>
+          <p>
+            Like ứng viên mà bạn thích.
+          </p>
+          <p>
+            Và chờ ứng viên like bạn.
+          </p>
+          <p>
+            Vuốt sang phải để xem ứng viên tiếp theo
+          </p>
+        </div>
+        <div class="padding">
+          <button ui-sref="edash" class="jobo-button jobo-button-block jobo-button-calm">Khám phá ngay!</button>
+    </div>
+      </ion-slide>
+
+  </ion-content>
+</ion-view>

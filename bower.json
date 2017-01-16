@@ -1,0 +1,13 @@
+{
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.1.0"
+  },
+  "dependencies": {
+    "ng-cordova-oauth": "^0.2.10",
+    "angular-cache": "^4.6.0",
+    "angular-ui-utils": "^3.0.0",
+    "ng-tags-input": "^3.1.1"
+  }
+}

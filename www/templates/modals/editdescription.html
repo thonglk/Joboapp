@@ -1,0 +1,20 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title color-red">Mô tả</h1>
+    <button class="button button-clear button-assertive" ng-click="hideeditdes()">
+      Trở về
+    </button>
+  </ion-header-bar>
+  <ion-content class="bg-color-stable profile-edit-container" >
+    <form name="form_signup" ng-submit="savejobdes(usercurent)" novalidate>
+      <label class="item item-input item-stacked-label" id="thNgTinCNhN-input14">
+
+        <textarea msd-elastic="\n" type="text" placeholder="Giới thiệu về cửa hàng của bạn và vị trí bạn đang cần tuyển" ng-model="usercurent.description"></textarea>
+      </label>
+      <div class="padding">
+        <button type="submit" class="jobo-button jobo-button-block jobo-button-calm">Lưu</button>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-modal-view>

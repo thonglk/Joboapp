@@ -1,0 +1,21 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Những công việc thích bạn</h1>
+    <div class="buttons">
+      <button class="button button-clear button-assertive" ng-click="hideliked()">Hủy</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list" data-ng-repeat="card in Objcards"
+         ng-if="usercurent.stars[card.userid] && !usercurent.match[card.userid] && !card.disstars[userid]">
+
+      <a class="item item-thumbnail-left" ng-click="hideliked()" href="#/eviewprofile/{{card.userid}}">
+        <img src="{{card.photourl}}">
+        <h2>{{card.name}}</h2>
+        <p ng-repeat="(key,value) in card.interest.job">{{dataJob[key]}}, </p>
+      </a>
+
+    </div>
+
+  </ion-content>
+</ion-modal-view>

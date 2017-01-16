@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Lĩnh vực</h1>
+    <button class="button button-clear button-assertive" ng-click="hideeditdes()">
+      Trở về
+    </button>
+  </ion-header-bar>
+  <ion-content class="bg-color-stable profile-edit-container" >
+    <form name="form_signup" ng-submit="doinin(user)" novalidate>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Nhấn để chọn
+        </div>
+        <select ng-options="item as item.text for item in industry" ng-model="user.industry">
+          <option value="{{usercurent.industry}}"></option>
+
+        </select>
+      </label>
+
+      <div class="padding">
+        <button type="submit" class="jobo-button jobo-button-block jobo-button-calm">Lưu</button>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-modal-view>

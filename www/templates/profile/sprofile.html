@@ -1,0 +1,131 @@
+<ion-view title="Cập nhật thông tin" id="page11" ng-init="init()">
+  <ion-content padding="false" class="has-header">
+    <img ng-src="{{usercurent.photourl}}" class="swiper-images" ng-click="updateavatar()">
+    <i ng-click="updateavatar()"
+       class="button button-positive button-small button-clear icon-left ion-images">Sửa</i>
+    <ion-list class="list-borderless">
+      <ion-item>
+        <h2 class="font-130" style="
+    margin-bottom: 10px;
+">{{usercurent.name}}</h2>
+        <p><i class="ion-location"></i> {{usercurent.location.address}}</p>
+        <div id="profile-markdown35" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;font-size:12px;"><i class="ion-university"></i>
+            {{usercurent.school}}
+          </p><i ng-click="editschool()"
+                 class="button button-positive button-small button-clear icon-left ion-edit">Sửa</i>
+        </div>
+        <div id="profile-markdown36" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;font-size:12px;"><i class="ion-android-calendar"></i>
+            {{calculateAge(usercurent.birth)}} tuổi
+          </p><i ng-click="editbirth()"
+                 class="button button-positive button-small button-clear icon-left ion-edit">Sửa</i>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <div class="list card" id="profile-card23" style="
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+">
+      <ion-item class="item-icon-left item-icon-right" id="profile-list-item15">
+        <i class="icon ion-briefcase"></i>Kinh nghiệm làm việc
+        <i class="icon ion-android-add-circle color-jobo" ng-click="addjob()"></i>
+      </ion-item>
+      <p class="padding color-darkgray" ng-if="!usercurent.jobhistory">Tips: Cập nhật kinh nghiệm làm việc sẽ giúp bạn
+        dễ dàng nhận được công việc hơn</p>
+      <div class="item item-body" id="profile-list-item-container9" ng-repeat="job in usercurent.jobhistory">
+        <div class="row">
+          <div class="col col-75">
+            <div id="profile-markdown8">
+              <p style="margin-top:0px;color:#000000;">
+                <strong ng-repeat="(key,value) in job.title">{{dataJob[key]}},</strong> - {{job.company}}</p>
+
+              <button id="profile-button5" style="border-radius:0px 0px 0px 0px;"
+                      class="button button-positive button-small button-outline">{{industry[job.industry]}}
+              </button>
+            </div>
+          </div>
+          <div class="col">
+            <p style="margin-top:0px;color:#000000;">
+              {{calculatemonth(job.monthstart)}} - {{calculatemonth(job.monthend)}}</p>
+            <i ng-click="deletehistory(job.key)" class="new icon ion-android-delete"
+               style="width: 40px;color: indianred"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list card" id="profile-card27" style="
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+">
+      <ion-item class="item-icon-left item-icon-right" id="profile-list-item21">
+        <i class="icon ion-ios-videocam-outline"></i>Video giới thiệu
+        <i class="icon ion-ios-videocam color-jobo" ng-click="captureVideo()"></i>
+
+      </ion-item>
+      <div style="position:relative;overflow:hidden;padding-bottom:56.25%;height:0;" id="profile-video1">
+        <p class="padding color-darkgray" ng-if="!usercurent.videourl">Tips: Hãy giới thiệu về bản thân và kể về công
+          việc trước đây của bạn, chỉ những NTD bạn "like" mới xem được video này!</p>
+        <iframe class="youtube-player" type="text/html" ng-src="{{trustSrc(usercurent.videourl)}}" allowfullscreen
+                autoplay="false"
+                frameborder="0">
+        </iframe>
+      </div>
+    </div>
+
+    <div ng-if="usercurent.interest.job" class="list card" id="profile-card29" style="
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+">
+      <ion-item class="item-icon-left item-icon-right" id="profile-list-item23">
+        <i class="icon ion-checkmark-circled"></i>Sở thích công việc
+        <i class="icon ion-android-create color-jobo" ng-click="showinterest()"></i>
+
+      </ion-item>
+      <div class="item item-body" id="profile-list-item-container21" >
+        <label ng-repeat="(key,value) in usercurent.interest.job">
+          <button class="button margin-top-5 button-outline button-small button-positive">{{dataJob[key]}}</button>
+        </label>
+
+      </div>
+    </div>
+    <div ng-if="usercurent.interest.time" class="list card" id="profile-card29" style="
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+">
+      <ion-item class="item-icon-left item-icon-right" id="profile-list-item23">
+        <i class="icon ion-checkmark-circled"></i>Thời gian phù hợp
+        <i class="icon ion-android-create color-jobo" ng-click="showinterest()"></i>
+
+      </ion-item>
+      <div class="item item-body" id="profile-list-item-container21" >
+
+        <label ng-repeat="(key,value) in usercurent.interest.time">
+          <button class="button margin-top-5 button-outline button-small button-positive">{{time[key]}}</button>
+        </label>
+
+      </div>
+    </div>
+    <div ng-if="usercurent.interest.distance" class="list card" id="profile-card29" style="
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+">
+      <ion-item class="item-icon-left item-icon-right" id="profile-list-item23">
+        <i class="icon ion-checkmark-circled"></i>Khoảng cách di chuyển: {{usercurent.interest.distance}} km
+        <i class="icon ion-android-create color-jobo" ng-click="showinterest()"></i>
+
+      </ion-item>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,138 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="$back()">Back</a>
+
+  </ion-header-bar>
+  <ion-content>
+
+
+    <div id="profile-container5">
+      <div class="list">
+        <div class="item item-image">
+
+          <img ng-src="{{usercurent.photourl}}">
+        </div>
+        <ion-list class="list-borderless">
+          <ion-item>
+
+            <div class="item item-body" id="profile-list-item-container8">
+              <div id="profile-markdown7" class="show-list-numbers-and-dots">
+                <h2 class="font-130">{{usercurent.name}}</h2>
+
+                <p><i class="ion-location"></i> {{usercurent.location.address}}</p>
+              </div>
+              <div id="profile-markdown35" class="show-list-numbers-and-dots" ng-if="usercurent.school">
+                <p style="margin-top:0px;color:#000000;font-size:12px;"><i class="ion-university"></i>
+                  {{usercurent.school}}
+                </p>
+              </div>
+              <div id="profile-markdown36" class="show-list-numbers-and-dots" ng-if="usercurent.birth">
+                <p style="margin-top:0px;color:#000000;font-size:12px;"><i class="ion-android-calendar"></i>
+                  {{calculateAge(usercurent.birth)}} tuổi
+                </p>
+              </div>
+            </div>
+      </div>
+    </div>
+    <div class="list card" id="profile-card23" style="
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+" ng-if="usercurent.jobhistory">
+      <ion-item class="item-icon-left" id="profile-list-item15">
+        <i class="icon ion-briefcase"></i>Kinh nghiệm làm việc
+      </ion-item>
+
+      <div class="item item-body" id="profile-list-item-container9" ng-repeat="job in usercurent.jobhistory">
+        <div class="row">
+          <div class="col col-75">
+            <div id="profile-markdown8">
+              <p style="margin-top:0px;color:#000000;">
+                <strong ng-repeat="(key,value) in job.title">{{dataJob[key]}},</strong> - {{job.company}}</p>
+
+              <button id="profile-button5" style="border-radius:0px 0px 0px 0px;"
+                      class="button button-positive button-small button-outline">{{industry[job.industry]}}
+              </button>
+            </div>
+          </div>
+          <div class="col">
+            <p style="margin-top:0px;color:#000000;">
+              {{calculatemonth(job.monthstart)}} - {{calculatemonth(job.monthend)}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="usercurent.videourl && usercurent.stars[userid]" class="list card" id="profile-card27" style="
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+">
+      <ion-item class="item-icon-left" id="profile-list-item21">
+        <i class="icon ion-ios-videocam"></i>Video giới thiệu
+
+      </ion-item>
+      <div style="position:relative;overflow:hidden;padding-bottom:56.25%;height:0;" id="profile-video1">
+        <iframe class="youtube-player" type="text/html" ng-src="{{trustSrc(usercurent.videourl)}}" allowfullscreen
+                autoplay="false"
+                frameborder="0">
+        </iframe>
+      </div>
+    </div>
+
+    <div ng-if="usercurent.interest.job" class="list card" id="profile-card29" style="
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+">
+      <ion-item class="item-icon-left" id="profile-list-item23">
+        <i class="icon ion-ios-briefcase"></i>Sở thích công việc
+
+      </ion-item>
+      <div class="item item-body" id="profile-list-item-container21" >
+        <label ng-repeat="(key,value) in usercurent.interest.job">
+          <button class="button margin-top-5 button-outline button-small button-positive">{{dataJob[key]}}</button>
+        </label>
+
+      </div>
+    </div>
+    <div ng-if="usercurent.interest.time" class="list card" id="profile-card29" style="
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+">
+      <ion-item class="item-icon-left " id="profile-list-item23">
+        <i class="icon ion-ios-timer"></i>Thời gian phù hợp
+
+      </ion-item>
+      <div class="item item-body" id="profile-list-item-container21" >
+
+        <label ng-repeat="(key,value) in usercurent.interest.time">
+          <button class="button margin-top-5 button-outline button-small button-positive">{{time[key]}}</button>
+        </label>
+
+      </div>
+    </div>
+    <div ng-if="usercurent.interest.distance" class="list card" id="profile-card29" style="
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+">
+      <ion-item class="item-icon-left " id="profile-list-item23">
+        <i class="icon ion-android-bicycle"></i>Khoảng cách di chuyển: {{usercurent.interest.distance}} km
+
+      </ion-item>
+    </div>
+    <div style="height: 250px"></div>
+  </ion-content>
+  <div class="ptinder-buttons">
+    <div class="ptinder-button  animated fadeInRightBig" ng-click="dislike(usercurent.userid)"></div>
+    <div class="ptinder-button  animated fadeInLeftBig" ng-click="like(usercurent.userid)"></div>
+
+  </div>
+</ion-modal-view>
